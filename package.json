@@ -1,0 +1,9 @@
+{
+  "name": "southcoast",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ottemo/southcoast.git"
+  }
+}
