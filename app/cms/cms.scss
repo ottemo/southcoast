@@ -1,0 +1,16 @@
+$images-count: 8;
+
+.images {
+  padding-bottom: 20px;
+  .img {
+    padding: 5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .img {
+    display: inline-block;
+    width: 100% / $images-count;
+    margin-right: -4px; //remove inline-block gap;
+  }
+}
