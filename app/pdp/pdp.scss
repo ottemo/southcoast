@@ -1,0 +1,15 @@
+.pdp__main-img {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+.pdp-price {
+    font-size: 32px;
+    font-weight: bold;
+}
+@media (min-width: $screen-sm-min) {
+
+    .pdp-radio-group .radio {
+        margin-right: 15px;
+    }
+}

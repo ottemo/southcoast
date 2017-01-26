@@ -1,0 +1,177 @@
+<header class="site-header">
+    <div class="container">
+        <a class="navbar-brand"
+            href="/">
+            <img alt="South Coast Swords"
+                src="/images/logo.png">
+            <span class="sr-only">South Coast Swords</span>
+        </a>
+
+        <!-- Utility Navigation -->
+        <ul class="nav navbar-nav navbar-util hidden-xs">
+            <li class="social-link">
+                <a href="https://www.instagram.com/southcoastswords/"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li class="social-link">
+                <a href="https://www.facebook.com/SouthCoastSwords/"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li ng-if="!visitorProps.isLoggedIn"
+                data-match-route="^/login">
+                <a href="/login">Login / Register</a>
+            </li>
+            <li ng-if="visitorProps.isLoggedIn"
+                data-match-route="^/account">
+                <a href="/account">My Account</a>
+            </li>
+            <li data-match-route="^/cart">
+                <a href="/cart">
+                    My Cart ({{getItemsInCart()}})
+                </a>
+            </li>
+        </ul>
+
+        <!-- search block -->
+        <div class="form-group form-group--search">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <a ng-click="searchProducts(searchText, '/catalog')"><i class="fa fa-search"></i></a>
+                </div>
+                <input class="form-control"
+                       placeholder="Search..."
+                       ng-model="searchText"
+                       ng-enter="searchProducts(searchText, '/catalog')">
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<div class="navbar navbar-default navbar-main"
+    role="navigation"
+    bs-navbar>
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle"
+                ng-click="mobileNav.isOpen = !mobileNav.isOpen">
+                <i class="fa fa-fw fa-bars"></i> Menu
+            </button>
+
+            <a href="/cart" class="navbar-header-btn pull-right">
+                <i class="fa fa-shopping-cart"></i> Cart
+            </a>
+        </div>
+
+        <div class="navbar-collapse collapse"
+            ng-class="{in: mobileNav.isOpen}">
+
+            <!-- Main Navigation -->
+            <ul class="nav navbar-nav">
+                <li data-match-route="^/$">
+                    <a href="/">Home</a>
+                </li>
+                <li data-match-route="^/blog">
+                    <a href="/blog">Blog</a>
+                </li>
+                <li data-match-route="^/catalog">
+                    <a href="/catalog">Catalog</a>
+                </li>
+                <li class="dropdown" data-match-route="^/weapons">
+                    <a href="/weapons">Weapons</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/weapons?type=One%20Hand%20Swords">One Hand Swords</a>
+                        </li>
+
+                        <li>
+                            <a href="/weapons?type=Two%20Hand%20Swords">Two Hand Swords</a>
+                        </li>
+
+                        <li>
+                            <a href="/weapons?type=Knives%20and%20Daggers">Knives and Daggers</a>
+                        </li>
+
+                        <li>
+                            <a href="/weapons?type=Shields%20and%20Bucklers">Shields and Bucklers</a>
+                        </li>
+
+                        <li>
+                            <a href="/weapons?type=Other%20Weapons">Other Weapons</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" data-match-route="^/protective">
+                    <a href="/protective">Protective</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/protective?type=Head%20and%20Neck">Head and Neck</a>
+                        </li>
+
+                        <li>
+                            <a href="/protective?type=Torso">Torso</a>
+                        </li>
+
+                        <li>
+                            <a href="/protective?type=Hands%20and%20Arms">Hands and Arms</a>
+                        </li>
+
+                        <li>
+                            <a href="/protective?type=Belt%20and%20Below">Belt and Below</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" data-match-route="^/other">
+                    <a href="/other">Other Stuff</a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/other?type=Clothing%20and%20Jewelry">Clothing and Jewelry</a>
+                        </li>
+
+                        <li>
+                            <a href="/other?type=Gear%20Bags">Gear Bags</a>
+                        </li>
+
+                        <li>
+                            <a href="/other?type=Accessories">Accessories</a>
+                        </li>
+
+                        <li>
+                            <a href="/other?type=Books">Books</a>
+                        </li>
+
+                        <li>
+                            <a href="/other?type=For%20Kids">For kids</a>
+                        </li>
+
+                        <li>
+                            <a href="/other?type=One-offs">One-offs</a>
+                        </li>
+
+                        <li>
+                            <a href="/other?type=Seriously%20Misc">Seriously Misc.</a>
+                        </li>
+                    </ul>
+                </li>
+                <li data-match-route="^/schools">
+                    <a href="/schools">Schools & Clubs</a>
+                </li>
+                <li data-match-route="^/about-us">
+                    <a href="/about-us">About Us</a>
+                </li>
+
+                <!-- Additional mobile menu items, since the util nav is hidden -->
+                <li class="visible-xs"
+                    ng-show="!visitorProps.isLoggedIn">
+                    <a href="/login">Login</a>
+                </li>
+
+                <li class="visible-xs"
+                    ng-show="visitorProps.isLoggedIn">
+                    <a href="/account">My Account</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
