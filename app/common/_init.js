@@ -11,4 +11,4 @@ angular.module('commonModule')
             // Don't monitor font awesome animation .fa-spin
             $animateProvider.classNameFilter(/^((?!(fa-spin)).)*$/);
         }
-    ])
+    ]);

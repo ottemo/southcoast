@@ -34,12 +34,12 @@
         <div class="form-group form-group--search">
             <div class="input-group">
                 <div class="input-group-addon">
-                    <a ng-click="searchProducts(searchText)"><i class="fa fa-search"></i></a>
+                    <a ng-click="searchProducts(searchText, '/catalog')"><i class="fa fa-search"></i></a>
                 </div>
                 <input class="form-control"
                        placeholder="Search..."
                        ng-model="searchText"
-                       ng-enter="searchProducts(searchText)">
+                       ng-enter="searchProducts(searchText, '/catalog')">
             </div>
         </div>
 

@@ -24,7 +24,7 @@ angular.module("pdpModule")
             $scope._getProduct = function () {
                 pdpApiService.getProduct({"productID": $scope.productId}).$promise.then(function (response) {
                     if (response.error === null) {
-                        var result = response.result || defaultProduct();
+                        var result = response.result || $scope.defaultProduct;
 
                         pdpProductService.setProduct(result);
                         $scope.product = pdpProductService.getProduct();
