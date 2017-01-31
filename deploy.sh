@@ -15,7 +15,7 @@ fi
 
 if [ "$BRANCH" == 'develop' ]; then
     configName=${SRCDIR}/config/${STORE}.json
-    THEME=`ssh ottemo@$REMOTE_HOST "cd $SRCDIR && grep theme ${configName} | sed 's/^.*:.*\"\(.*\)\".*$/\1/'"`
+    THEME=`ssh ottemo@$REMOTE_HOST "cd $SRCDIR && grep -w theme ${configName} | sed 's/^.*:.*\"\(.*\)\".*$/\1/'"`
     THEMEDIR=${SRCDIR}/src/themes/${THEME}
     
     currentBranch=`ssh ottemo@$REMOTE_HOST "cd $SRCDIR && git symbolic-ref --quiet --short HEAD 2> /dev/null || git rev-parse --short HEAD 2> /dev/null || echo '(unknown)'"`
