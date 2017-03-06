@@ -29,6 +29,9 @@ angular.module("pdpModule")
                         pdpProductService.setProduct(result);
                         $scope.product = pdpProductService.getProduct();
 
+                        // Inventory
+                        $scope.isProductInStock = $scope.product.qty === undefined || $scope.product.qty > 0;
+
                         // BREADCRUMBS
                         $scope.$emit("add-breadcrumbs", {
                             "label": $scope.product.name,
