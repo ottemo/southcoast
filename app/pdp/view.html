@@ -75,7 +75,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-6"
-                     ng-show="product.qty > 0">
+                     ng-show="isProductInStock">
                     <!-- custom options -->
                     <ot-custom-options item="product"
                         object="this"></ot-custom-options>
@@ -94,24 +94,28 @@
                                 ng-change="update(idx, qty)">
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- add to cart button -->
+            <div class="row">
+                <div class="col-sm-6">
                     <div class="form-group">
-                        <a class="btn btn-primary btn-lg"
-                            ng-class="{disabled: isAddingToCart}"
-                            ng-click="addToCart($event)">
-                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                        <a class="btn btn-primary btn-block"
+                           ng-show="product.qty !== 0"
+                           ng-class="{disabled: isAddingToCart}"
+                           ng-click="addToCart($event)">
+                            <i class="fa fa-shopping-cart"></i> Add to cart
                             <i class="fa fa-circle-o-notch fa-spin"
-                                ng-show="isAddingToCart"></i>
+                               ng-show="isAddingToCart"></i>
+                        </a>
+
+                        <a class="btn btn-default btn-block disabled"
+                           ng-show="product.qty === 0">
+                            <i class="fa fa-shopping-cart"></i> Sold Out
                         </a>
                     </div>
                 </div>
             </div>
-
-            <a class="btn btn-default disabled"
-                ng-if="product.qty == 0">
-                <i class="fa fa-shopping-cart"></i> Sold Out
-            </a>
 
             <!-- error message -->
             <ot-message-manager item="messageOptions"></ot-message-manager>
