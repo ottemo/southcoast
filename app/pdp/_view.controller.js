@@ -34,6 +34,8 @@ angular.module("pdpModule")
                             "label": $scope.product.name,
                             "url": pdpProductService.getUrl($scope.product._id)
                         });
+
+                        $scope._initWatchers();
                     } else {
                         $location.path("/");
                     }

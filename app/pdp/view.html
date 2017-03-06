@@ -101,7 +101,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <a class="btn btn-primary btn-block"
-                           ng-show="product.qty !== 0"
+                           ng-show="product.qty === undefined || product.qty > 0"
                            ng-class="{disabled: isAddingToCart}"
                            ng-click="addToCart($event)">
                             <i class="fa fa-shopping-cart"></i> Add to cart
@@ -110,7 +110,7 @@
                         </a>
 
                         <a class="btn btn-default btn-block disabled"
-                           ng-show="product.qty === 0">
+                           ng-show="product.qty !== undefined && product.qty <= 0">
                             <i class="fa fa-shopping-cart"></i> Sold Out
                         </a>
                     </div>
